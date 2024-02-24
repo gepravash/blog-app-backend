@@ -21,7 +21,8 @@ blogRouter.get('/', async (request, response, next) => {
 blogRouter.get('/:id', async (request, response, next) => {
     try 
     {
-        const blogs = await Blog.find({})
+        const blog = await Blog.find({_id: request.params.id})
+        response.send(blog)
     }
     catch(error)
     {
